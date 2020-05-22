@@ -38,8 +38,8 @@ const film_data=[
     },
     {
         id:5,
-        name:"Aashiqui",
-        genre:"Romance",
+        name:"URI",
+        genre:"Action",
         duration:"1h 45m"
     },
     {
@@ -47,6 +47,12 @@ const film_data=[
         name:"Aashiqui 2",
         genre:"Romance",
         duration:"2h 3m"
+    },
+    {
+        id:7,
+        name:"3 Idiots",
+        genre:"Comedy",
+        duration:"2h 30m"
     }
 ]
 
@@ -66,11 +72,12 @@ app.get('/film_names',(req,res,next)=>{
 app.get('/film_info',(req,res,next)=>{
 
     let { films } = req.query
-
+    console.log(films)
     let answer=film_data.filter(elm=>{
+        console.log(elm.name)
         return films.indexOf(elm.name)!=-1
     })
-
+    console.log(answer)
     return res.json({result:answer})
 })
 
