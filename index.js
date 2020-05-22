@@ -54,10 +54,10 @@ const film_data=[
 app.get('/film_names',(req,res,next)=>{
 
     let { userInput } = req.query;
-    var regex = new RegExp(userInput, 'g');
+    var regex = new RegExp(userInput.toLowerCase(), 'g');
 
     let answer=film_data.filter(elm=>{
-        return elm.name.match(regex)!=null;
+        return elm.name.toLowerCase().match(regex)!=null;
     })
 
     return res.json({result:answer})
